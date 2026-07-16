@@ -1,0 +1,245 @@
+1<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Locked</title>
+
+<style>
+body{
+    margin:0;
+    background:#8b0000;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    width:700px;
+    background:#b30000;
+    border:5px solid white;
+    border-radius:15px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,0,0,.6);
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.warning{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.info{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.payment{
+    background:white;
+    color:#b30000;
+    display:inline-block;
+    padding:15px 30px;
+    font-size:28px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.timer{
+    margin-top:30px;
+    font-size:24px;
+}
+
+.note{
+    margin-top:40px;
+    color:#ffd6d6;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>⚠ YOUR FILES ARE ENCRYPTED ⚠</h1>
+
+<div class="warning">
+</div>
+
+<div class="info">
+Your personal files have been encrypted.<br>
+To restore access, send <b>0.01 BTC</b> to the wallet below.<br><br>
+
+</div>
+
+<div class="payment">
+PAY NOW
+</div>
+
+<div class="timer">
+Time Remaining<br>
+<span id="timer">05:00</span>
+</div>
+
+<div class="note">
+
+</div>
+
+</div>
+<script>
+let time = 5 * 60;
+
+let timer = document.getElementById("timer");
+
+let countdown = setInterval(function(){
+
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timer.textContent = minutes + ":" + seconds;
+
+    time--;
+
+    if(time < 0){
+        clearInterval(countdown);
+        timer.textContent = "TIME EXPIRED";
+    }
+
+}, 1000);
+</script>
+</body>
+</html>1<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Locked</title>
+
+<style>
+body{
+    margin:0;
+    background:#8b0000;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    width:700px;
+    background:#b30000;
+    border:5px solid white;
+    border-radius:15px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,0,0,.6);
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.warning{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.info{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.payment{
+    background:white;
+    color:#b30000;
+    display:inline-block;
+    padding:15px 30px;
+    font-size:28px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.timer{
+    margin-top:30px;
+    font-size:24px;
+}
+
+.note{
+    margin-top:40px;
+    color:#ffd6d6;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>⚠ YOUR FILES ARE ENCRYPTED ⚠</h1>
+
+<div class="warning">
+</div>
+
+<div class="info">
+Your personal files have been encrypted.<br>
+To restore access, send <b>0.01 BTC</b> to the wallet below.<br><br>
+
+</div>
+
+<div class="payment">
+PAY NOW
+</div>
+
+<div class="timer">
+Time Remaining<br>
+<span id="timer">05:00</span>
+</div>
+
+<div class="note">
+
+</div>
+
+</div>
+<script>
+let time = 5 * 60;
+
+let timer = document.getElementById("timer");
+
+let countdown = setInterval(function(){
+
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timer.textContent = minutes + ":" + seconds;
+
+    time--;
+
+    if(time < 0){
+        clearInterval(countdown);
+        timer.textContent = "TIME EXPIRED";
+    }
+
+}, 1000);
+</script>
+</body>
+</html>
