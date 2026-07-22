@@ -98,10 +98,10 @@ h1{
 
 #jokeMessage{
     display:none;
-    margin-top:30px;
-    font-size:32px;
+    font-size:36px;
     font-weight:bold;
     color:#00ff66;
+    padding: 40px 0;
 }
 </style>
 
@@ -109,7 +109,7 @@ h1{
 
 <body>
 
-<div class="box">
+<div class="box" id="mainBox">
 
 <h1>⚠️ YOUR FILES ARE ENCRYPTED ⚠️</h1>
 
@@ -149,8 +149,8 @@ Pay
 </div>
 
 <div id="jokeMessage">
- Just Kidding! 😜 <br><br>
-
+😜 Just Kidding!<br><br>
+This was only a ransomware awareness demonstration.
 </div>
 
 <div class="timer">
@@ -193,6 +193,7 @@ const payButton = document.getElementById("payButton");
 const paymentBox = document.getElementById("paymentBox");
 const submitPayment = document.getElementById("submitPayment");
 const jokeMessage = document.getElementById("jokeMessage");
+const mainBox = document.getElementById("mainBox");
 
 payButton.addEventListener("click",function(){
 
@@ -200,36 +201,15 @@ payButton.addEventListener("click",function(){
 
 });
 
-submitPayment.addEventListener("click", function () {
+submitPayment.addEventListener("click",function(){
 
-    // Hide the ransomware window
-    document.querySelector(".box").style.display = "none";
+    // Stop the countdown timer
+    clearInterval(countdown);
 
-    // Keep the red background
-    document.body.style.background = "#8b0000";
-
-    // Show full-screen message
-    jokeMessage.style.display = "flex";
-    jokeMessage.style.position = "fixed";
-    jokeMessage.style.top = "0";
-    jokeMessage.style.left = "0";
-    jokeMessage.style.width = "100vw";
-    jokeMessage.style.height = "100vh";
-    jokeMessage.style.justifyContent = "center";
-    jokeMessage.style.alignItems = "center";
-    jokeMessage.style.textAlign = "center";
-    jokeMessage.style.fontSize = "60px";
-    jokeMessage.style.lineHeight = "1.5";
-    jokeMessage.style.color = "white";
-    jokeMessage.style.zIndex = "9999";
-
-    jokeMessage.innerHTML =
-        "😜<br><br>Just Kidding!<br><br>";
-
-});
-    paymentBox.style.display="none";
-
-    jokeMessage.style.display="block";
+    // Clear everything inside the main box and show only the joke message
+    mainBox.innerHTML = "";
+    jokeMessage.style.display = "block";
+    mainBox.appendChild(jokeMessage);
 
 });
 
