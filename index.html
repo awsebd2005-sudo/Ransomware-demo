@@ -1,4 +1,4 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -50,6 +50,12 @@ h1{
     font-size:28px;
     border-radius:10px;
     font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.payment:hover{
+    transform:scale(1.05);
 }
 
 .timer{
@@ -62,26 +68,89 @@ h1{
     color:#ffd6d6;
     font-size:14px;
 }
+
+#paymentBox{
+    display:none;
+    margin-top:30px;
+    background:white;
+    color:black;
+    padding:25px;
+    border-radius:10px;
+}
+
+#paymentBox input,
+#paymentBox textarea{
+    width:90%;
+    padding:10px;
+    margin:8px;
+    font-size:16px;
+}
+
+#paymentBox button{
+    padding:12px 30px;
+    font-size:18px;
+    background:#b30000;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#jokeMessage{
+    display:none;
+    margin-top:30px;
+    font-size:32px;
+    font-weight:bold;
+    color:#00ff66;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="box">
 
-<h1>⚠️  YOUR FILES ARE ENCRYPTED ⚠️ </h1>
-
-<div class="warning">
-</div>
+<h1>⚠️ YOUR FILES ARE ENCRYPTED ⚠️</h1>
 
 <div class="info">
 Your personal files have been encrypted.<br>
-To restore access, send <b>0.01 BTC</b> to the wallet below.<br><br>
+To restore access, send <b>0.01 BTC</b> to the wallet below.
+</div>
+
+<div class="payment" id="payButton">
+PAY NOW
+</div>
+
+<div id="paymentBox">
+
+<h2>Payment Details</h2>
+
+<p>Please complete the information below.</p>
+
+<input type="text" placeholder="Full Name">
+
+<input type="text" placeholder="IBAN">
+
+<input type="text" placeholder="Bank Name">
+
+<input type="text" placeholder="Account Number">
+
+<input type="text" placeholder="Reference Number">
+
+<textarea placeholder="Additional Notes"></textarea>
+
+<br>
+
+<button id="submitPayment">
+Pay
+</button>
 
 </div>
 
-<div class="payment">
-PAY NOW
+<div id="jokeMessage">
+ Just Kidding! 😂<br><br>
+
 </div>
 
 <div class="timer">
@@ -89,12 +158,12 @@ Time Remaining<br>
 <span id="timer">05:00</span>
 </div>
 
-<div class="note">
-
 </div>
 
-</div>
 <script>
+
+// Countdown Timer
+
 let time = 5 * 60;
 
 let timer = document.getElementById("timer");
@@ -116,7 +185,30 @@ let countdown = setInterval(function(){
         timer.textContent = "TIME EXPIRED";
     }
 
-}, 1000);
+},1000);
+
+// Payment Form
+
+const payButton = document.getElementById("payButton");
+const paymentBox = document.getElementById("paymentBox");
+const submitPayment = document.getElementById("submitPayment");
+const jokeMessage = document.getElementById("jokeMessage");
+
+payButton.addEventListener("click",function(){
+
+    paymentBox.style.display="block";
+
+});
+
+submitPayment.addEventListener("click",function(){
+
+    paymentBox.style.display="none";
+
+    jokeMessage.style.display="block";
+
+});
+
 </script>
+
 </body>
 </html>
