@@ -149,7 +149,7 @@ Pay
 </div>
 
 <div id="jokeMessage">
- Just Kidding! 😂<br><br>
+ Just Kidding! 😜 <br><br>
 
 </div>
 
@@ -200,8 +200,33 @@ payButton.addEventListener("click",function(){
 
 });
 
-submitPayment.addEventListener("click",function(){
+submitPayment.addEventListener("click", function () {
 
+    // Hide the ransomware window
+    document.querySelector(".box").style.display = "none";
+
+    // Keep the red background
+    document.body.style.background = "#8b0000";
+
+    // Show full-screen message
+    jokeMessage.style.display = "flex";
+    jokeMessage.style.position = "fixed";
+    jokeMessage.style.top = "0";
+    jokeMessage.style.left = "0";
+    jokeMessage.style.width = "100vw";
+    jokeMessage.style.height = "100vh";
+    jokeMessage.style.justifyContent = "center";
+    jokeMessage.style.alignItems = "center";
+    jokeMessage.style.textAlign = "center";
+    jokeMessage.style.fontSize = "60px";
+    jokeMessage.style.lineHeight = "1.5";
+    jokeMessage.style.color = "white";
+    jokeMessage.style.zIndex = "9999";
+
+    jokeMessage.innerHTML =
+        "😜<br><br>Just Kidding!<br><br>";
+
+});
     paymentBox.style.display="none";
 
     jokeMessage.style.display="block";
